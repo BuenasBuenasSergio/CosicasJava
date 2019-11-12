@@ -1,8 +1,10 @@
 package frog;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Rectangle;
+import java.awt.Toolkit;
 
 public class Frog extends Rectangle {
 
@@ -11,11 +13,15 @@ public class Frog extends Rectangle {
 	public boolean derecha = false;
 	public boolean izquierda = false;
 	public boolean abajo = false;
-	int velX = 5;
-	int velY = 5;
+	int velX = 10;
+	public int velY;
+	Toolkit t = Toolkit.getDefaultToolkit();
+	Dimension screenSize;
 
 	public Frog(int posY, int posX, int height, int width) {
 		super(posX, posY, height, width);
+		screenSize = t.getScreenSize();
+		velY = screenSize.height / 13;
 	}
 
 	public void dibujar(Graphics g) {

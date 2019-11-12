@@ -1,0 +1,29 @@
+Clase Frog:
+    Metodos:
+        paint
+        actualizar
+        moveUp
+        moveDown
+        moveRight
+        moveleft
+        lives
+        goal
+
+Clase Turtle
+    Metodos:
+        paint
+        move
+        actualizar
+Clase cars
+    Metodos:
+        paint
+        move
+        actualizar
+Clase Road
+    Metodos:
+        paint
+Clase River
+    Metodos:
+        paint
+Clase safe
+    Metodos paint

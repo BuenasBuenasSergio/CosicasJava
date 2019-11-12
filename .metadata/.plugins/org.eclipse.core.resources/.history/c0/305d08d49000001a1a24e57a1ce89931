@@ -1,0 +1,20 @@
+package Frog;
+
+import java.awt.Rectangle;
+
+public class Frog extends Rectangle {
+
+	// Declaraciones de valores width;
+	private int posY;
+	private int posX;
+	private int width;
+	private int height;
+
+	public Frog(int posY, int posX, int height, int width) {
+		this.posY = posY;
+		this.posX = posX;
+		this.height= height;
+		this.width= width;
+	}
+
+}
