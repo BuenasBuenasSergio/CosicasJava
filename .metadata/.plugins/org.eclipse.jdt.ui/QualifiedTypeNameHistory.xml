@@ -8,5 +8,7 @@
 <fullyQualifiedTypeName name="floor.StopFloor"/>
 <fullyQualifiedTypeName name="floor.Road"/>
 <fullyQualifiedTypeName name="java.awt.Color"/>
+<fullyQualifiedTypeName name="floor.EndFloor"/>
 <fullyQualifiedTypeName name="java.awt.Rectangle"/>
+<fullyQualifiedTypeName name="car.Car"/>
 </qualifiedTypeNameHistroy>

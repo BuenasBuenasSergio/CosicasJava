@@ -7,7 +7,11 @@ import java.awt.Event;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.util.ArrayList;
+import java.util.List;
 
+import car.Car;
+import floor.EndFloor;
 import floor.River;
 import floor.Road;
 import floor.StopFloor;
@@ -20,7 +24,9 @@ public class Froagger extends Applet implements Runnable {
 	Frog frog;
 	StopFloor saveFloor, saveFloor2;
 	Road road, road2, road3;
-	River river, river2, river3, river4;
+	River river, river2, river3, river4, river5;
+	EndFloor endFloor;
+	List<Car> car;
 	// Reconociendo tamaño de pantalla(declaraciones)
 	Toolkit t = Toolkit.getDefaultToolkit();
 	Dimension screenSize;
@@ -43,6 +49,9 @@ public class Froagger extends Applet implements Runnable {
 		river2 = new River(river.y - frog.velY, 0, screenSize.width, frog.velY);
 		river3 = new River(river2.y - frog.velY, 0, screenSize.width, frog.velY);
 		river4 = new River(river3.y - frog.velY, 0, screenSize.width, frog.velY);
+		river5 = new River(river4.y - frog.velY, 0, screenSize.width, frog.velY);
+		endFloor = new EndFloor(river5.y - frog.velY, 0, screenSize.width, frog.velY);
+		createCars();
 	}
 
 	public void start() {
@@ -64,6 +73,12 @@ public class Froagger extends Applet implements Runnable {
 		river2.dibujar(noseve);
 		river3.dibujar(noseve);
 		river4.dibujar(noseve);
+		river5.dibujar(noseve);
+		for (int i = 0; i < car.size(); i++) {
+			car.get(i).dibujar(noseve);
+		}
+
+		endFloor.dibujar(noseve);
 		frog.dibujar(noseve);
 		g.drawImage(imagen, 0, 0, this);
 	}
@@ -74,10 +89,12 @@ public class Froagger extends Applet implements Runnable {
 
 	public void run() {
 		while (true) {
-
+			for (int i = 0; i < car.size(); i++) {
+				car.get(i).actualizar();
+			}
 			repaint();
 			try {
-				Thread.sleep(50);
+				Thread.sleep(10);
 			} catch (InterruptedException e) {
 			}
 		}
@@ -126,5 +143,13 @@ public class Froagger extends Applet implements Runnable {
 		}
 		repaint();
 		return true;
+	}
+
+	public void createCars() {
+		car = new ArrayList<Car>();
+		for (int i = 0; i < 100; i++) {
+			car.add(new Car(road.y + 10, screenSize.width * i, 20, 20));
+		}
+
 	}
 }
